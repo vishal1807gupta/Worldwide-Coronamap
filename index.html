@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worldwide CoronaMap</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
+
+         .corona-info {
+            position: absolute;
+            font-family: sans-serif;
+            margin-top: 5px;
+            margin-left: 5px;
+            padding: 5px;
+            width: 20%;
+            border: 2px solid black;
+            font-size: 14px;
+            color: #222;
+            background-color: #fff;
+            border-radius: 30px;
+            z-index:2;
+            text-align: center;
+        } 
+        .corona-info img{
+            height: 12px;
+            width: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='map'>
+     <div class='corona-info'>
+         <h2>CASES</h2>
+        <div><strong>More than and equal to 2000 :</strong> <span id='cas'></span>
+        <img src="/images/yellow.png" ></div>
+        <div><strong>More than and equal to 1000 :</strong> <span id='loc'></span>
+        <img src="/images/blue.png"></div>
+        <div><strong>More than and equal to 255  :</strong> <span id='date'></span>
+        <img src="/images/red.png"></div>
+        <div><strong>More than and equal to 30   :</strong> <span id='brown'></span>
+        <img src="/images/brown.png"></div>
+        <div><strong>Less than $ vice versa 30   :</strong> <span id='black'></span>
+        <img src="/images/black.png"></div>
+    </div> 
+</div>
+</body>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoidmlzaGFsMTgwN2d1cHRhIiwiYSI6ImNreDJ2bXdqbTE0Yngyb3FscWZnenJyMXgifQ.gAj6j7A54DcfBkuRsJVVAw';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v10',
+        zoom: 1,
+        center: [0, 20]
+    });
+    const casDisplay = document.getElementById('cas');
+    const locDisplay = document.getElementById('loc');
+    const dateDisplay = document.getElementById('date');
+    const brownDisplay = document.getElementById('brown');
+    const blackDisplay = document.getElementById('black');
+</script>
+<script src="index.js"></script>
+
+</html>
